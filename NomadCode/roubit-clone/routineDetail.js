@@ -11,7 +11,7 @@ export default function RoutineDetail (props) {
     const temp = [...validDays]
     temp[index] = !temp[index]
     setValidDays(temp)
-    console.log(validDays)
+    console.log(index)
   }
   return (
     <View style={{...styles.rouWrapper}}>
@@ -28,7 +28,7 @@ export default function RoutineDetail (props) {
             </View> */}
             {validDays[0] &&<View style={styles.days}>
               {['일','월','화','수','목','금','토'].map((el,index) => (
-                <TouchableOpacity onPress={toggle(index)} key={uuid.v4()} ><Text style={{...styles.day, backgroundColor: validDays[index]===true? "green": "none"}}>{el}</Text></TouchableOpacity>
+                <TouchableOpacity onPress={toggle(index+1)} key={uuid.v4()} ><Text style={{...styles.day, backgroundColor: validDays[index+1]===true? "green": ""}}>{el}</Text></TouchableOpacity>
               ))}
             </View>}
     </View>

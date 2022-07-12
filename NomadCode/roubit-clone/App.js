@@ -37,9 +37,12 @@ export default function App() {
       > 
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text>루틴 목록</Text>
-            <Pressable><Feather name="x" size={20} color="black" onPress={() => setModalVisible(!modalVisible)}/></Pressable>
-            <CategoryList pressCategory = {pressCategory()} category={category} width={SCREEN_WIDTH/4} setModalVisible={setModalVisible}/>        
+            <View style={{flexDirection: 'row',justifyContent: 'space-between',}}>
+              <Text  style={{fontSize:18,fontWeight: 'bold'}}>루틴 목록</Text>
+              <Pressable><Feather name="x" size={24} color="black" onPress={() => setModalVisible(!modalVisible)}/></Pressable>
+            </View>
+           
+            <CategoryList setCategory = {setCategory} category={category} width={SCREEN_WIDTH/5} setModalVisible={setModalVisible}/>        
 
           </View>
         </View>
@@ -51,7 +54,7 @@ export default function App() {
         <Text style={{fontSize: 18, fontWeight: 'bold'}}>루틴 목록</Text>
         <Pressable onPress={() => {setModalVisible(true)}}><MaterialCommunityIcons name="square-rounded-outline" size={28} color="gray" /></Pressable>
       </View>
-      <CategoryList onPress = {pressCategory} category={category} width={SCREEN_WIDTH/6.5} />
+      <CategoryList setCategory = {setCategory} category={category} width={SCREEN_WIDTH/6.5} />
       <View style={styles.contents}>
         <ScrollView showsVerticalScrollIndicator={false} >
         {data.length===1? 
@@ -83,7 +86,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   centeredView: {
-    flex: 1,
+    flex: .6,
     justifyContent: "center",
     alignItems: "center",
     marginTop: 22
@@ -93,7 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 20,
     padding: 35,
-    alignItems: "center",
+    // alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
